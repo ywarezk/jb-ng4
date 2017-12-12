@@ -62,3 +62,30 @@ setTimeout(function() {
 // 10 == "10" // true
 // 10 === "10" // false
 // !==
+
+
+/// function summary
+
+function myName(firstName: string) {
+
+}
+
+const myFunc = function() {
+    console.log(this);
+}
+
+const myLambda = (firstName: string) => {
+    console.log(this);
+}
+
+const dict = {a: myFunc};
+dict['a']();
+myFunc();
+
+const dict2 = {a: myLambda};
+dict2['a']();
+myLambda();
+
+
+
+

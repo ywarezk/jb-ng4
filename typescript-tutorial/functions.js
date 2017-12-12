@@ -1,3 +1,5 @@
+"use strict";
+var _this = this;
 function sayHello(message, stamNumber) {
     if (message === void 0) { message = 'hello world'; }
     return message.length;
@@ -46,4 +48,20 @@ setTimeout(function () {
 }, 2000);
 // 10 == "10" // true
 // 10 === "10" // false
-// !== 
+// !==
+/// function summary
+function myName(firstName) {
+}
+var myFunc = function () {
+    console.log(this);
+};
+var myLambda = function (firstName) {
+    console.log(_this);
+};
+var dict = { a: myFunc };
+dict['a']();
+myFunc();
+var dict2 = { a: myLambda };
+dict2['a']();
+myLambda();
+//# sourceMappingURL=functions.js.map
