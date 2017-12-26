@@ -9,7 +9,8 @@ import {LoginService} from "../../services/login.service";
     // template: `
     //     <h1>hello user component</h1>
     // `
-    templateUrl: "login.component.html"
+    templateUrl: "login.component.html",
+    // providers: [LoginService]
 })
 export class LoginComponent {
     constructor(loginService: LoginService) {}
