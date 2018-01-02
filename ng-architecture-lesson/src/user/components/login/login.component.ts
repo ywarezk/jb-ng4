@@ -1,5 +1,5 @@
 
-import {Component} from "@angular/core";
+import {Component, ViewEncapsulation} from "@angular/core";
 import {LoginService} from "../../services/login.service";
 
 @Component({
@@ -10,8 +10,13 @@ import {LoginService} from "../../services/login.service";
     //     <h1>hello user component</h1>
     // `
     templateUrl: "login.component.html",
-    // providers: [LoginService]
+    // providers: [{provide: LoginService, deps:[], useFactory: () => {
+    //     console.log('creating new instance of loginservice');
+    //     return new LoginService();
+    // }}],
+    // encapsulation: ViewEncapsulation.None
 })
 export class LoginComponent {
-    constructor(loginService: LoginService) {}
+
+    // constructor(service: LoginService) {}
 }

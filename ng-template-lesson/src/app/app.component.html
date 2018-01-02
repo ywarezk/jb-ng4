@@ -1,0 +1,97 @@
+<h1>
+    Angular Template Lesson
+</h1>
+
+<h2>
+    Interpolation - one way transfer data from component to template
+</h2>
+
+<p>
+    {{ 1 + 1 }}
+</p>
+
+<p>
+    {{ stamNumber }}
+</p>
+
+<p>
+    {{ sayHello() }}
+</p>
+
+<p>
+    {{ stamNumber + 10 }}
+</p>
+
+
+<p class="{{createJbClass()}}">
+    custom class created from instance
+</p>
+
+<h2>
+    [] - one way transfer data from component template
+</h2>
+
+<p [innerText]="sayHello()" >
+
+</p>
+
+<!-- <input type="text" value="{{stamNumber}}" /> -->
+<input type="text" [value]="stamNumber" />
+
+<h2>
+    Direction from template to class
+</h2>
+
+<p>
+    () - binds events to class
+</p>
+
+<button (click)="stamNumber = stamNumber + 1" >
+    click me
+</button>
+<br/>
+<input type="text" name="moveToClass" (input)="viewEvent($event)"  />
+<!-- <input type="text" name="moveToClass" (input)="textInput = $event.target.value; stamNumber = textInput.length"  /> -->
+{{textInput}}
+
+
+<h2>
+    Two way binding
+</h2>
+
+<p>
+    [] - one way from class to template
+</p>
+<p>
+    () - from template to class
+</p>
+<p>
+    two way binding
+</p>
+
+<input type="text" [value]="twoWayBinding1" (input)="changeTwoWayBinding1($event.target.value)">
+<input type="text" [value]="twoWayBinding1" (input)="twoWayBinding1 = $event.target.value">
+{{twoWayBinding1}}
+
+<h2>
+    ngModel
+</h2>
+
+<p>
+    [(ngModel)]="somePublicVar"
+</p>
+
+<input type="text" [(ngModel)]="stamNumber" />
+<input type="text" [value]="stamNumber" (input)="stamNumber = $event.target.value">
+
+<h2>
+    Communication Parent child component
+</h2>
+
+<jb-child [messageFromParent]="stamNumber + 55" [message]="transferToChild"></jb-child>
+
+<h2>
+    event from child to parent
+</h2>
+
+<jb-child [message]="'bind to event'" (visibility)="popWhenToggleVisibility($event)" ></jb-child>
