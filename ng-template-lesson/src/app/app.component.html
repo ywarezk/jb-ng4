@@ -94,4 +94,95 @@
     event from child to parent
 </h2>
 
-<jb-child [message]="'bind to event'" (visibility)="popWhenToggleVisibility($event)" ></jb-child>
+<jb-child #jbChildInstance [message]="'bind to event'" (visibility)="popWhenToggleVisibility($event)" ></jb-child>
+
+<h2>
+    Template refrence variable
+    {{ instanceParagraph.className }}
+</h2>
+
+<p #instanceParagraph class="hello world">
+   I want to get this p dom element instance 
+   {{ instanceParagraph.className }}
+</p>
+
+<p>
+    we now have access through template refrence variable to the second jb-child
+    <br/>
+    to prove the isVisibility is: {{jbChildInstance.isVisible}}
+</p>
+
+<h2>
+    Built in directives
+</h2>
+
+<h3>
+    NgIf
+</h3>
+
+<p>
+    <!-- <some-tag *ngIf="boolean expression"></some-tag> -->
+</p>
+
+<p *ngIf="jbChildInstance.isVisible">
+    this will be visible only when the 2nd ChildComponent test is visible
+</p>
+
+<h3>
+    NgForOf
+</h3>
+
+<ul>
+    <li *ngFor="let item of groceries; index as i" >
+        {{i}} {{item}}
+    </li>
+</ul>
+
+<h3>
+    NgSubmit
+</h3>
+
+<form (ngSubmit)="popAlert();">
+    <button type="submit">Submit</button>
+</form>
+
+<h3>
+    NgClass
+</h3>
+
+
+<p [ngClass]="cssClasses">
+    the css classes here are dynamic and are set from a public property in AppComponent
+</p>
+
+<p [class.active]="true" [class.angular]="false">
+
+</p>
+
+
+<h2>
+    Pipes
+</h2>
+
+<h3>
+    Date pipe
+</h3>
+
+{{ dateValueFromClass | date:"dd/MM/yyyy" }} <br/>
+{{ dateValueFromClass }}
+
+<h3>
+    Snake Pipe
+</h3>
+
+<p>
+    {{ 'hello angular' | snake }}
+</p>
+
+<h2>
+    Safe navigation operator
+</h2>
+
+<p>
+    {{ canBeNullButUsuallyDict?.title }}
+</p>
