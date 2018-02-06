@@ -6,17 +6,17 @@ import { Subject } from "rxjs/Subject";
 
  export class TaskService {
      public tasks: string[] = [];
-     public tasksSubject: Subject<string[]> = new Subject();
+    //  public tasksSubject: Subject<string[]> = new Subject();
 
-    public addTask(newTask: string) {
-        this.tasks.push(newTask);
-        this.tasksSubject.next(this.tasks);
-    }
+    // public addTask(newTask: string) {
+    //     this.tasks.push(newTask);
+    //     this.tasksSubject.next(this.tasks);
+    // }
 
-     /**
-      * delete index element from tasks
-      * @param index
-      */
+    //  /**
+    //   * delete index element from tasks
+    //   * @param index
+    //   */
      public deleteItem(index: number) {
         const newTasks: string[] = [];
         for (let i=0; i<this.tasks.length; i++) {
@@ -24,6 +24,6 @@ import { Subject } from "rxjs/Subject";
             newTasks.push(this.tasks[i]);
         }
         this.tasks = newTasks;
-        this.tasksSubject.next(this.tasks);
+        // this.tasksSubject.next(this.tasks);
      }
  }

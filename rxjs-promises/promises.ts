@@ -10,6 +10,10 @@
     }, 1000);
  });
 
+//  promise.then
+
+// promise.then
+
  const numberPromise: Promise<number | void> = promise.then(
      function (msg: string) {
          console.log(msg);
@@ -52,3 +56,7 @@ class Task {
  // 2. promise can release one shout
 
  // 3. async logic will run only once not for every subscriber
+
+ // 4. promises are not cancelable
+
+ 

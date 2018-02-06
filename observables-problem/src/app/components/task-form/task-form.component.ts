@@ -30,6 +30,7 @@ import { TaskService } from '../../services/task.service';
      * add a new task to the service array
      */
     public addTask() {
-        this._taskService.addTask(this.taskTitle);
+        // this._taskService.addTask(this.taskTitle);
+        this._taskService.tasks.push(this.taskTitle)
     }
  }

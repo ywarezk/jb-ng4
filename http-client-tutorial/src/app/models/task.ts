@@ -16,4 +16,8 @@ export class Task implements ITask {
         this.description = json.description;
     }
 
+    public toJson() {
+        
+    }
+
 }

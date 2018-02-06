@@ -1,0 +1,65 @@
+
+
+<div class="container mt-5">
+
+  <div class="row justify-content-center">
+    
+    <div class="col-xs-12 col-lg-6">
+      
+      <h1>
+        Registration Form
+      </h1>
+
+      <form #ngFormInstance="ngForm">
+        <div class="form-group">
+          <label>
+            Username
+          </label>
+          <input required minlength="3" maxlength="20" pattern="[a-z]+" name="username" type="text" class="form-control" [(ngModel)]="username" #usernameNgModel="ngModel" />
+          <div *ngIf="usernameNgModel.invalid && usernameNgModel.touched" class="badge badge-danger">
+            <div *ngIf="usernameNgModel.errors.required">
+              This field is required
+            </div>
+            <div *ngIf="usernameNgModel.errors.minlength">
+              You must type more then 3 characters
+            </div>
+            <div *ngIf="usernameNgModel.errors.pattern" >
+                only small letters please
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>
+            Email
+          </label>
+          <input email name="email" type="email" class="form-control" [(ngModel)]="email" />
+        </div>
+        <div class="form-group">
+          <label>
+            Password
+          </label>
+          <input name="password" type="password" class="form-control" [(ngModel)]="password" />
+        </div>
+        <div class="form-group">
+          <label>
+            Repeat Password
+          </label>
+          <input name="repeatPassword" type="password" class="form-control" [(ngModel)]="repeatPassword" #ngModelRepeat="ngModel" />
+          <div *ngIf="ngModelRepeat.touched && repeatPassword !== password">
+            <div class="badge badge-danger">
+              The password and repeat doesnt match
+            </div>
+          </div>
+
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary" type="submit" [disabled]="ngFormInstance.invalid">Submit</button>
+        </div>
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+

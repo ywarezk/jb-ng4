@@ -1,0 +1,18 @@
+
+
+<nav>
+  <ul>
+    <li routerLinkActive="active" [routerLinkActiveOptions]="{'exact': true}">
+      <a [routerLink]="'/'" >
+        Homepage
+      </a>
+    </li>
+    <li routerLinkActive="active">
+      <a [routerLink]="aboutUrl">
+        Aboutpage
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<router-outlet></router-outlet>

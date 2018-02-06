@@ -20,9 +20,10 @@ import { TaskService } from '../../services/task.service';
     public tasks: string[] = [];
 
     constructor(private _taskService: TaskService) {
-        _taskService.tasksSubject.subscribe((tasks: string[]) => {
-            this.tasks = tasks;
-        });
+        // _taskService.tasksSubject.subscribe((tasks: string[]) => {
+        //     this.tasks = tasks;
+        // });
+        this.tasks = _taskService.tasks;
     }
 
     public deleteTask(index: number) {
