@@ -15,6 +15,7 @@
         RouterModule.forRoot([
             {path: '', component: HomeComponent},
             {path: 'about', component: AboutComponent},
+            {path: 'tasks', loadChildren: '../../todo/todo.module#TodoModule'},
             {path: '**', component: Error404Component}
         ])
     ],

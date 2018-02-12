@@ -22,6 +22,9 @@ export class AppComponent {
         console.error('server didnt event get the request');
       }
     });
+    _taskService.createTask({title: 'stam', description: 'stam2'}).subscribe((task: Task) => {
+
+    })
   }
 
 }

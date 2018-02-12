@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
 import { Task } from '../models/task';
+import { ParamMap, ActivatedRoute } from '@angular/router';
+import { TaskService } from '../services/task.service';
 
 @Component({
     selector: 'jb-task-details',
@@ -16,4 +18,13 @@ import { Task } from '../models/task';
 })
 export class TaskDetailsComponent {
     public task: Task = null;
+
+    constructor(private _activatedRoute: ActivatedRoute, private _taskService: TaskService) {
+        this._activatedRoute.paramMap.subscribe((map: ParamMap) => {
+            const id: string = map.get('id');
+            this._taskService.getSingleTask(id).subscribe((task: Task) => {
+                this.task = task;
+            })
+        })
+    }
 }

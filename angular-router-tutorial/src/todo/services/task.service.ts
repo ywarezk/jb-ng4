@@ -9,14 +9,14 @@ export class TaskService {
 
     constructor(private _http: HttpClient) {}
 
-    public getAllTasks(): Observable<Task[]> {
-        return this._http.get<ITask[]>('https://nztodo.herokuapp.com/api/task/?format=json')
+    public getAllTasks(search: string = ''): Observable<Task[]> {
+        return this._http.get<ITask[]>(`https://nztodo.herokuapp.com/api/task/?format=json&search=${search}`)
             .map((json: ITask[]) => {
                 return json.map((arrItem: ITask) => { return new Task(arrItem)});
             });
     }
 
-    public getSingleTask(id: number): Observable<Task> {
+    public getSingleTask(id: number | string): Observable<Task> {
         return this._http.get<ITask>(`https://nztodo.herokuapp.com/api/task/${id}/?format=json`)
             .map((json: ITask) => {
                 return new Task(json);
